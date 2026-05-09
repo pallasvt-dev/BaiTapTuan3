@@ -1,0 +1,25 @@
+@{
+    ViewData["Title"] = "Kết quả Đăng ký";
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="alert alert-success" role="alert">
+                <h4 class="alert-heading">Đăng ký thành công!</h4>
+                <p class="mb-3">
+                    Cảm ơn bạn <strong>@TempData["MSSV"]</strong> - <strong>@TempData["HoTen"]</strong> đã đăng ký chuyên ngành <strong>@TempData["ChuyenNganh"]</strong>
+                </p>
+                <hr>
+                <p class="mb-0">
+                    Số lượng SV đã đăng ký ngành giống bạn là : <strong>@TempData["SoDangKyCungNganh"]</strong>
+                </p>
+            </div>
+
+            <div class="mt-4">
+                <a href="@Url.Action("Index")" class="btn btn-primary">Đăng ký tiếp</a>
+                <a href="@Url.Action("Index", "Home")" class="btn btn-secondary">Về trang chủ</a>
+            </div>
+        </div>
+    </div>
+</div>

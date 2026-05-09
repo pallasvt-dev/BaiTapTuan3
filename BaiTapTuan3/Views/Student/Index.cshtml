@@ -1,0 +1,53 @@
+@model BaiTapTuan3.Models.Student
+
+@{
+    ViewData["Title"] = "Đăng ký Chuyên ngành";
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <h1>@ViewData["Title"]</h1>
+            <p>Vui lòng điền thông tin để đăng ký chuyên ngành</p>
+
+            <form asp-action="Index" method="post">
+                <div class="mb-3">
+                    <label asp-for="MSSV" class="form-label">MSSV</label>
+                    <input type="text" class="form-control" asp-for="MSSV" placeholder="Mã số sinh viên" required>
+                    <span asp-validation-for="MSSV" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="HoTen" class="form-label">Họ tên</label>
+                    <input type="text" class="form-control" asp-for="HoTen" placeholder="Họ và tên đầy đủ" required>
+                    <span asp-validation-for="HoTen" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="DiemTB" class="form-label">Điểm TB</label>
+                    <input type="number" class="form-control" asp-for="DiemTB" placeholder="Điểm trung bình" step="0.1" min="0" max="10" required>
+                    <span asp-validation-for="DiemTB" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="ChuyenNganh" class="form-label">Chuyên ngành</label>
+                    <select class="form-select" asp-for="ChuyenNganh" required>
+                        <option value="">-- Chọn chuyên ngành --</option>
+                        <option value="CNPM">Công nghệ Phần mềm (CNPM)</option>
+                        <option value="HTTT">Hệ thống Thông tin (HTTT)</option>
+                        <option value="ANM">An ninh Mạng (ANM)</option>
+                        <option value="TTNT">Trí tuệ Nhân tạo (TTNT)</option>
+                        <option value="MMT">Mạng Máy tính (MMT)</option>
+                    </select>
+                    <span asp-validation-for="ChuyenNganh" class="text-danger"></span>
+                </div>
+
+                <button type="submit" class="btn btn-primary w-100">Đăng ký</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
